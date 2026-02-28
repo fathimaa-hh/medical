@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MediVault 🚑</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/html5-qrcode"></script>
+</head>
+<body>
+
+<div class="navbar">
+    <h2>MediVault</h2>
+    <div class="nav-center">
+        <button onclick="showSection('home')">Home</button>
+        <button onclick="showSection('register')">Patient Registration</button>
+        <button onclick="showSection('login')">Patient Login</button>
+        <button onclick="showSection('hospitalLogin')">Doctor Login</button>
+    </div>
+</div>
+
+<div id="home" class="section home-center">
+    <h1>Welcome to MediVault 🚑</h1>
+    <button class="emergency-btn" onclick="showSection('emergency')">🚨 Emergency Access</button>
+</div>
+
+<div id="register" class="section hidden">
+    <h2>Patient Registration</h2>
+    <div id="step1">
+        <input type="text" id="name" placeholder="Full Name"><br>
+        <input type="number" id="age" placeholder="Age"><br>
+        <input type="text" id="blood" placeholder="Blood Group"><br>
+        <input type="text" id="phone" placeholder="Phone Number"><br>
+        <button onclick="nextStep()">Next</button>
+    </div>
+    <div id="step2" class="hidden">
+        <input type="text" id="allergy" placeholder="Allergies"><br>
+        <input type="text" id="disease" placeholder="Chronic Diseases"><br>
+        <input type="text" id="contact" placeholder="Emergency Contact"><br>
+        <button onclick="registerPatient()">Register</button>
+    </div>
+    <div id="qrOutput"></div>
+</div>
+
+<div id="login" class="section hidden">
+    <h2>Patient Login</h2>
+    <input type="text" id="loginID" placeholder="Enter Patient ID"><br>
+    <button onclick="loginPatient()">Login</button>
+</div>
+
+<div id="dashboard" class="section hidden">
+    <h2>Patient Dashboard</h2>
+    <div id="patientInfo"></div>
+    <hr>
+    <input type="file" id="reportFile" accept="application/pdf"><br>
+    <input type="text" id="diagnosis" placeholder="Diagnosis">
+    <input type="text" id="prescription" placeholder="Prescription">
+    <button onclick="uploadReport()">Upload Report</button>
+    <div id="reportList"></div>
+    <button onclick="logout()">Logout</button>
+</div>
+<div id="hospitalRegister" class="section hidden">
+    <h2>Doctor Registration</h2>
+    <input type="text" id="doctorName" placeholder="Doctor Name"><br>
+    <input type="text" id="hospitalName" placeholder="Hospital Name"><br>
+    <input type="text" id="doctorID" placeholder="Doctor ID"><br>
+    <button onclick="registerDoctor()">Register</button>
+    <div id="doctorRegisterMsg"></div>
+</div>
+<div id="hospitalLogin" class="section hidden">
+    <h2>Doctor Login</h2>
+    <input type="text" id="hospitalUser" placeholder="Username"><br>
+    <input type="password" id="hospitalPass" placeholder="Password"><br>
+    <button onclick="loginDoctor()">Login</button>
+</div>
+
+<div id="hospital" class="section hidden">
+    <h2>Doctor Dashboard</h2>
+    <input type="text" id="searchID" placeholder="Enter Patient ID">
+    <button onclick="loadPatientFullData()">Search</button>
+    <div id="patientFullSection" class="hidden">
+        <div id="patientData"></div>
+        <div id="allReports"></div>
+        <input type="text" id="hospitalNameInput" placeholder="Hospital Name">
+        <input type="text" id="doctorNameInput" placeholder="Doctor Name">
+        <input type="text" id="diagnosis" placeholder="Diagnosis">
+        <input type="text" id="prescription" placeholder="Prescription">
+        <input type="file" id="reportFile" accept="application/pdf"><br>
+        <button onclick="addReport()">Add Report</button>
+    </div>
+    <button onclick="logoutHospital()">Logout</button>
+</div>
+
+<div id="emergency" class="section hidden">
+    <h2>Emergency Access</h2>
+    <button onclick="startQRScanner()">📷 Scan QR Code</button>
+    <button onclick="simulateFingerprint()">👆 Scan Fingerprint</button>
+    <div id="reader" style="width:300px; margin-top:20px;"></div>
+    <div id="emergencyData"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

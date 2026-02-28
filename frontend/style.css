@@ -1,0 +1,10 @@
+body { font-family: Arial, sans-serif; margin:0; background:#e3f2fd; }
+.navbar { background: linear-gradient(90deg,#0077b6,#0096c7); color:white; padding:15px; display:flex; justify-content:space-between; align-items:center;}
+.navbar button { background:white; color:#0077b6; border:none; padding:8px 12px; margin-left:10px; border-radius:5px; cursor:pointer; }
+.navbar button:hover { background:#caf0f8; }
+.section { padding:40px; }
+.hidden { display:none; }
+input, button { padding:10px; margin:8px 0; border-radius:5px; }
+button { background-color:#0096c7; color:white; border:none; cursor:pointer; }
+.home-center { text-align:center; margin-top:50px; }
+.emergency-btn { background:red; font-size:18px; padding:10px 20px; border-radius:8px; color:white; cursor:pointer; }
